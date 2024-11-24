@@ -1,0 +1,181 @@
+.home {
+    background-color: black;
+    color: white;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .home__banner {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .home__bannerImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .home__searchWrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    z-index: 200;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .home__search {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 25px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: black;
+    text-align: center;
+  }
+  
+  .home__search::placeholder {
+    color: black;
+    text-align: center;
+  }
+  
+  .home__bannerContents {
+    z-index: 2;
+  }
+  
+  .home__title {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  
+  .home__button {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .home__button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .home__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .home__movie {
+    width: 150px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .home__moviePoster {
+    width: 100%;
+    height: 225px;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .home__moviePoster:hover {
+    transform: scale(1.05);
+  }
+  
+  .home__movieDetails {
+    margin-top: 10px;
+  }
+  
+  .home__movieTitle {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  
+  .home__movieRating {
+    font-size: 1rem;
+    color: gold;
+    margin-top: 5px;
+  }
+  
+  .home__searchWrapper {
+    position: absolute;
+    width: 800px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+  
+  .home__search {
+    width: 600px;
+    height: 60px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    outline: none;
+    background-color: #fff;
+    color: #333;
+    transition: all 0.3s ease;
+  }
+  
+  .home__search:focus {
+    width: 750px;
+    background-color: #f1f1f1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .home__search::placeholder {
+    color: #aaa;
+  }
+  
+  .home__searchWrapper button {
+    background-color: #ff9f00;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin-left: 15px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+    width: 90px;
+  }
+  
+  .home__searchWrapper button:hover {
+    background-color: #e68900;
+    transform: scale(1.15);
+  }
+  
+  .home__searchWrapper button:focus {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  @media screen and (max-width: 768px) {
+    .home__row {
+      justify-content: center;
+    }
+  }
+  
