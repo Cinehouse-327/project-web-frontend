@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './Login.css';
-import Header from './home/pageComponents/Header';
-import Footer from './home/pageComponents/Footer';
+import Header from "../home/pageComponents/Header";
+import Footer from "../home/pageComponents/Footer";
+
 
 const Login = () => {
   const [credentials, setCredentials] = useState({

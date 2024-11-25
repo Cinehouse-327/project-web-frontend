@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Register.css';
-import Header from './home/pageComponents/Header';
-import Footer from './home/pageComponents/Footer';
+import Header from "../home/pageComponents/Header";
+import Footer from "../home/pageComponents/Footer";
 
 const Register = () => {
   const [formData, setFormData] = useState({
