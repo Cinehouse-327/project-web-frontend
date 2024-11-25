@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Header from '../home/pageComponents/Header';
+import Footer from '../home/pageComponents/Footer';
 import './OrderConcession.css';
 
 const OrderConcession = () => {
@@ -49,8 +51,10 @@ const OrderConcession = () => {
   const total = items.reduce((t, i) => t + i.price * i.quantity, 0).toFixed(2);
 
   return (
+    <>
     <div className="OrderConcession">
       <header className="OrderConcession-header">
+      <Header />
         <h1>Order Food</h1>
       </header>
       <div className="OrderConcession-content">
@@ -146,6 +150,7 @@ const OrderConcession = () => {
         </div>
       </div>
     </div>
+      <Footer /> </>
   );
 };
 

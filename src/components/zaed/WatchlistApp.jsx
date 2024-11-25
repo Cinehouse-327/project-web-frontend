@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import Header from '../home/pageComponents/Header';
+import Footer from '../home/pageComponents/Footer';
 
 const WatchlistApp = () => {
   const [movies, setMovies] = useState([{ id: 1, title: 'Movie 1', watched: false }])
@@ -20,6 +22,8 @@ const WatchlistApp = () => {
   }
 
   return (
+    <>
+    <Header/>
     <div className="WatchlistApp">
       <header className="WatchlistApp-header">
         <h1>Watchlisted Movies</h1>
@@ -54,6 +58,8 @@ const WatchlistApp = () => {
         </table>
       </div>
     </div>
+    <Footer />
+    </>
   )
 }
 
