@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from './pageComponents/Header';
 import Footer from './pageComponents/Footer';
 import './Home.css';
 
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState('');
-
+  const navigate = useNavigate();
 
   const handleSearchChange = (e) => {
-    
+    setSearchQuery(e.target.value);
   };
 
   const handleSearch = () => {
-
+    navigate('/search', { state: { query: searchQuery } });
   };
 
   const handleBook = (movieTitle, moviePoster) => {
-   
+    console.log(`Booking movie: ${movieTitle}`);
   };
 
   return (

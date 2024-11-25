@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import './Header.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { logout } from '../../../store/authSlice';
+import "./Header.css";
 
 const Header = () => {
   const [isScrolling, setIsScrolling] = useState(false);
-
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { isAuthenticated } = useSelector((state) => state.auth);
 
   const handleScroll = () => {
     if (window.scrollY > 100) {
@@ -21,11 +26,12 @@ const Header = () => {
   }, []);
 
   const handleLogout = () => {
-   
+    dispatch(logout());
+    navigate('/login');
   };
 
   const handleLogin = () => {
-
+    navigate('/login');
   };
 
   return (
