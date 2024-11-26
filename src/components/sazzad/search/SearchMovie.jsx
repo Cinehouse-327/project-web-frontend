@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { fetchMovies, filterMovies } from '../../../store/movieSlice';
 import './SearchMovie.css';
-import Header from '../home/pageComponents/Header';
-import Footer from '../home/pageComponents/Footer';
+import Header from '../../home/pageComponents/Header';
+import Footer from '../../home/pageComponents/Footer';
 import FilterBar from './FilterBar';
 import ResultCard from './ResultCard';
 
