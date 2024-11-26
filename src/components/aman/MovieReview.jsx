@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './MovieReview.css';
 // Review Component to display each review
 const Review = ({ review }) => {
   return (
