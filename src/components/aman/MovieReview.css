@@ -1,0 +1,290 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0a0b10;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    background-color: #111;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    gap: 20px;
+  }
+  
+  /* Movie Poster Styles */
+  .movie-poster {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .movie-poster img {
+    width: 100%;
+    max-height: 400px; /* Adjust to your desired max height */
+    border-radius: 10px;
+    object-fit: cover; /* Helps keep image aspect ratio */
+  }
+  
+  
+  
+  .book-ticket-button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s;
+    width: 100%;
+  }
+  
+  .book-ticket-button:hover {
+    background-color: #c0392b;
+  }
+  
+  /* Movie Info Section */
+  .movie-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .movie-title {
+    font-size: 38px;
+    font-weight: bold;
+    color: #fff;
+    font-family: 'rockwell';
+    margin-bottom: 10px;
+  }
+  
+  .movie-subtitle {
+    color: #aaa;
+    font-size: 22px;
+    font-family: 'Georgia', serif;
+  }
+  
+  .overall-rating {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    font-family: 'rockwell';
+  }
+  
+  .overall {
+    font-size: 30px;
+    color: #fff;
+    margin-right: 10px;
+  }
+  
+  .rating-value {
+    font-size: 30px;
+    color: #f1c40f;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  .stars {
+    color: #f1c40f;
+    font-size: 24px;
+    margin-right: 15px;
+  }
+  
+  .write-review-button {
+    margin-left: 20px;
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s;
+  }
+  
+  .write-review-button:hover {
+    background-color: #c0392b;
+  }
+  
+  .total-reviews {
+    font-size: 18px;
+    color: #bbb;
+    font-weight: lighter;
+    margin-top: 5px;
+  }
+  
+  /* Review List */
+  .review-list {
+    max-height: 450px;
+    overflow-y: auto;
+    padding-right: 10px;
+    border-top: 1px solid #333;
+    margin-top: 20px;
+  }
+  
+  .review-list::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .review-list::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 4px;
+  }
+  
+  .review-list::-webkit-scrollbar-thumb:hover {
+    background: #666;
+  }
+  
+  /* Individual Review Styles */
+  .review {
+    display: flex;
+    padding: 15px;
+    background-color: #222;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    gap: 15px;
+  }
+  
+  .user-photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #555;
+  }
+  
+  .review-content {
+    flex: 1;
+  }
+  
+  .review-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .user-name {
+    font-weight: bold;
+    font-size: 18px;
+    color: #f1c40f;
+  }
+  
+  .review-date {
+    font-size: 14px;
+    color: #aaa;
+  }
+  
+  .review-stars {
+    color: #f1c40f;
+    font-size: 16px;
+    margin-top: 5px;
+  }
+  
+  .review-text {
+    font-size: 16px;
+    color: #ccc;
+    margin-top: 5px;
+  }
+  /* Modal Styles */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal {
+    background: #111;
+    padding: 30px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    color: #fff;
+    position: relative;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #e74c3c;
+  }
+  
+  .review-form .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .review-form .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .review-form .form-group input,
+  .review-form .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    background: #222;
+    border: 1px solid #444;
+    color: #fff;
+    border-radius: 4px;
+  }
+  
+  .review-form .form-group input:focus,
+  .review-form .form-group textarea:focus {
+    outline: none;
+    border-color: #e74c3c;
+  }
+  
+  .submit-button {
+    width: 100%;
+    padding: 10px;
+    background: #e74c3c;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .submit-button:hover {
+    background: #c0392b;
+  }
+  
