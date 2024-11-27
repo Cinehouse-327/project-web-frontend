@@ -63,12 +63,12 @@ const BookingPage = () => {
 
     const totalPrice = calculateTotalPrice();
     const bookingDetails = {
-      user_id: userId,
-      movie_id: movieId,
-      show_time: selectedTime,
+      userId: userId,
+      movieId: movieId,
+      showTime: selectedTime,
       date: selectedDate,
       seats: selectedSeats,
-      total_price: totalPrice,
+      totalPrice: totalPrice,
     };
 
     try {
