@@ -1,42 +1,63 @@
-import React, { useState } from 'react';
-import './MovieReview.css';
-// Review Component to display each review
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "./MovieReview.css";
+
+/**
+ * Review Component - Displays a single movie review.
+ * @param {Object} props - Component props.
+ * @param {Object} props.review - The review data to display.
+ * @returns {JSX.Element} The rendered Review component.
+ */
 const Review = ({ review }) => {
   return (
     <div className="review">
       <div className="user-photo">
-        <img src={review.userPhoto} alt="User Photo" width="60" height="60" />
+        <img
+          src="https://www.thedailystar.net/sites/default/files/styles/big_2/public/feature/images/hero_alam-web.jpg"
+          alt="User Photo"
+          width="60"
+          height="60"
+        />
       </div>
       <div className="review-content">
         <div className="review-header">
-          <div className="user-name">{review.name}</div>
-          <div className="review-date">{review.date}</div>
+          <div className="user-name">{review.title}</div>
+          <div className="review-date">{new Date().toLocaleDateString()}</div>
         </div>
-        <div className="review-stars">{'★'.repeat(review.rating)}</div>
-        <div className="review-text">{review.content}</div>
+        <div className="review-stars">{"★".repeat(review.rating)}</div>
+        <div className="review-text">{review.review}</div>
       </div>
     </div>
   );
 };
 
-// Modal for Review Form
+/**
+ * ReviewFormModal - A modal dialog for submitting a new review.
+ * @param {Object} props - Component props.
+ * @param {boolean} props.isOpen - Whether the modal is open.
+ * @param {Function} props.onClose - Function to close the modal.
+ * @param {Function} props.onSubmit - Function to submit the review.
+ * @returns {JSX.Element|null} The rendered ReviewFormModal component or null if not open.
+ */
 const ReviewFormModal = ({ isOpen, onClose, onSubmit }) => {
   const [formData, setFormData] = useState({
-    title: '',
-    rating: '',
-    detail: '',
+    title: "",
+    rating: "",
+    detail: "",
   });
 
+  // Handle input change for form fields
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit(formData);
-    setFormData({ title: '', rating: '', detail: '' });
-    onClose();
+    setFormData({ title: "", rating: "", detail: "" }); // Reset form
+    onClose(); // Close the modal after submission
   };
 
   if (!isOpen) return null;
@@ -90,42 +111,64 @@ const ReviewFormModal = ({ isOpen, onClose, onSubmit }) => {
   );
 };
 
-// Main MovieReview Component
-const MovieReview = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [reviews, setReviews] = useState([
-    {
-      name: 'Yusuf Sarkar',
-      date: 'August 15, 2022',
-      rating: 5,
-      content: 'Avengers Age of Ultron is an excellent sequel and a worthy MCU title! The action is amazing and the characters are fantastic...',
-      userPhoto: 'https://upload.wikimedia.org/wikipedia/commons/a/a1/Muhammad_Yunus_at_the_UNGA79_-_2024_%28cropped%29.jpg',
-    },
-    {
-      name: 'Donald Trump',
-      date: 'October 21, 2018',
-      rating: 5,
-      content: 'This is by far one of my favorite movies from the MCU. Lorem ipsum text ever since the 1500s...',
-      userPhoto: 'https://www.economist.com/cdn-cgi/image/width=1424,quality=80,format=auto/content-assets/images/20240706_USP503.jpg',
-    },
-    {
-      name: 'Modi Sarkar',
-      date: 'November 5, 2024',
-      rating: 5,
-      content: 'Avengers Age of Ultron is an excellent sequel and a worthy MCU title! The action is amazing and the characters are fantastic...',
-      userPhoto: 'https://www.newsonair.gov.in/wp-content/uploads/2024/08/3-Prime-Minister-Narendra-Modi-File-photo.jpeg',
-    },
-  ]);
+/**
+ * MovieReview Component - Displays movie details, reviews, and provides an option to write a review.
+ * @param {Object} props - Component props.
+ * @param {string} props.movieId - The ID of the movie.
+ * @param {string} props.userId - The ID of the user.
+ * @returns {JSX.Element} The rendered MovieReview component.
+ */
+const MovieReview = ({ movieId, userId }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false); // Modal open/close state
+  const [reviews, setReviews] = useState([]); // Reviews state
 
-  const handleAddReview = (review) => {
-    const newReview = {
-      name: 'Anonymous', // Default name
-      date: new Date().toLocaleDateString(),
-      rating: parseInt(review.rating),
-      content: review.detail,
-      userPhoto: 'https://via.placeholder.com/60', // Placeholder photo
+  // Fetch reviews for the specific movie when the component mounts
+  useEffect(() => {
+    const fetchReviews = async () => {
+      const movieId = "638a05f28a12345678abcd90";
+      try {
+        const { data } = await axios.get("http://localhost:3000/review/getreviews", {
+          params: { movieId },
+        });
+        setReviews(data.reviews); // Set reviews to state
+      } catch (error) {
+        console.error("Error fetching reviews:", error);
+      }
     };
-    setReviews((prev) => [newReview, ...prev]);
+
+    fetchReviews();
+  }, [movieId]); // Fetch reviews whenever movieId changes
+
+  /**
+   * Handle submitting a new review.
+   * @param {Object} review - The review data.
+   */
+  const handleAddReview = async (review) => {
+    const newReview = {
+      movie_id: movieId,
+      user_id: userId,
+      title: review.title,
+      rating: parseInt(review.rating),
+      review: review.detail,
+      date: new Date().toLocaleDateString(), // Current date
+      userPhoto:
+        "https://hips.hearstapps.com/hmg-prod/images/narendra-modi-494107793-600x600.jpg?crop=1xw:1.0xh;center,top&resize=640:*", // Placeholder photo
+    };
+
+    try {
+      const response = await axios.post(`http://localhost:3000/review/add/${movieId}`, newReview);
+
+      if (response.status === 201) {
+        // Add new review to state
+        setReviews((prev) => [newReview, ...prev]);
+        alert("Review submitted successfully!");
+      } else {
+        alert("Error submitting review.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Failed to submit review. Please try again later.");
+    }
   };
 
   return (
@@ -141,7 +184,6 @@ const MovieReview = () => {
 
       {/* Right Side: Movie Info and Reviews */}
       <div className="movie-info">
-        {/* Movie Title and Subtitle */}
         <div className="movie-title">Spider-Man: Far From Home</div>
         <div className="movie-subtitle">2021</div>
 
@@ -152,7 +194,7 @@ const MovieReview = () => {
           <div className="stars">★★★★★★★★☆☆</div>
           <button
             className="write-review-button"
-            onClick={() => setIsModalOpen(true)}
+            onClick={() => setIsModalOpen(true)} // Open modal to write a review
           >
             Write Review
           </button>
