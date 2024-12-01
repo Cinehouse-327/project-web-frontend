@@ -1,4 +1,4 @@
-.horizontal-movie-card {
+.horizontalMovieCard {
   display: flex;
   align-items: center;
   background-color: #f0f0f0;
@@ -10,44 +10,44 @@
   margin: 20px auto;
 }
 
-.horizontal-movie-card:hover {
+.horizontalMovieCard:hover {
   transform: translateY(-5px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.horizontal-movie-poster {
+.horizontalMoviePoster {
   width: 150px;
   height: 200px;
   object-fit: cover;
   border-right: 2px solid #ccc;
 }
 
-.horizontal-movie-info {
+.horizontalMovieInfo {
   flex-grow: 1;
   padding: 20px;
   text-align: left;
 }
 
-.horizontal-movie-title {
+.horizontalMovieTitle {
   font-size: 1.5em;
   margin-bottom: 10px;
   color: #333;
 }
 
-.horizontal-movie-details {
+.horizontalMovieDetails {
   display: flex;
   flex-direction: column;
   font-size: 1em;
 }
 
-.horizontal-movie-year,
-.horizontal-movie-category,
-.horizontal-movie-type {
+.horizontalMovieYear,
+.horizontalMovieCategory,
+.horizontalMovieType {
   margin: 5px 0;
   color: #555;
 }
 
-.horizontal-book-button {
+.horizontalBookButton {
   background-color: #007bff;
   color: #fff;
   border: none;
@@ -62,6 +62,6 @@
   width: 20%;
 }
 
-.horizontal-book-button:hover {
+.horizontalBookButton:hover {
   background-color: #0056b3;
 }
