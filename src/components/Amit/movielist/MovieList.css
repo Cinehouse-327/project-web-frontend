@@ -1,0 +1,336 @@
+/* MovieList.css */
+
+/* Container for the entire movie list page */
+.list-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #8e44ad, #3498db);
+  /* Purple to blue gradient */
+  font-family: 'Arial', sans-serif;
+  color: white;
+  box-sizing: border-box;
+}
+
+/* Header and Footer */
+.list-page header,
+.list-page footer {
+  width: 100%;
+  padding: 20px 0;
+  /* background-color: #34495e; */
+  background-color: transparent;
+  color: white;
+  text-align: center;
+
+}
+
+.list-page header h1,
+.list-page footer p {
+  margin: 0;
+  font-size: 18px;
+}
+
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap'); */
+
+.movie-list-page .title {
+  font-size: 48px; 
+  font-weight: bold;
+  font-family: sans-serif; 
+  background: linear-gradient(45deg, #f39c12, #ff6347, #6a5acd); 
+  -webkit-background-clip: text;
+  color: transparent; /* Make the gradient text visible */
+  margin-top: 120px;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  
+  /* Center the title horizontally and vertically */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* FilterBar Styling */
+.movie-list-page .filter-bar {
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.movie-list-page .filter-bar select {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 2px solid #f39c12;
+  background-color: #34495e;
+  color: white;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.movie-list-page .filter-bar select:hover {
+  border-color: #e67e22;
+}
+
+/* Movie card grid */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 50px;
+}
+
+/* Individual movie card */
+.movie-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.movie-card:hover {
+  transform: translateY(-10px);
+}
+
+.movie-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 3px solid #f39c12;
+}
+
+.movie-card .movie-info {
+  padding: 15px;
+  text-align: center;
+}
+
+.movie-card .movie-info h3 {
+  font-size: 20px;
+  color: #2c3e50;
+  margin: 10px 0;
+}
+
+.movie-card .movie-info p {
+  font-size: 14px;
+  color: #7f8c8d;
+}
+
+/* Loading spinner */
+.list-page .loading {
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+  margin-top: 50px;
+}
+
+/* Error message */
+.list-page .error {
+  font-size: 24px;
+  color: #e74c3c;
+  font-weight: bold;
+  margin-top: 50px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .movie-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .movie-list-page .title {
+    font-size: 30px;
+  }
+
+  .movie-card .movie-info h3 {
+    font-size: 18px;
+  }
+
+  .movie-card .movie-info p {
+    font-size: 12px;
+  }
+
+  .movie-list-page .filter-bar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .movie-list-page .filter-bar select {
+    width: 80%;
+    margin-bottom: 15px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* FilterBar.css */
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    background-color: #1f1f1f;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 1100px;
+    margin: 20px auto;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the filter bar */
+.filter-bar:hover {
+    background-color: #333;
+}
+
+/* Common style for input, select, and button */
+.filter-bar input,
+.filter-bar select,
+.filter-bar button {
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 2px solid #e50914;
+    background-color: #333;
+    color: #fff;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Focus effect for input, select, and button */
+.filter-bar input:focus,
+.filter-bar select:focus,
+.filter-bar button:hover {
+    border-color: #fff700;
+    background-color: #ffffff;
+    color: #1f1f1f;
+}
+
+/* Button specific styles */
+.filter-bar button {
+    background-color: #e50914;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+}
+
+/* Button active state for pressed effect */
+.filter-bar button:active {
+    background-color: #b20710;
+    transform: translateY(2px);
+}
+
+/* Placeholder style for input */
+.filter-bar input::placeholder {
+    color: #ccc;
+}
+
+/* Adjust input box to be larger */
+.filter-bar input {
+    width: 250px;
+    max-width: 300px;
+}
+
+/* Adjust select boxes and button to be smaller */
+.filter-bar select,
+.filter-bar button {
+    width: 160px;
+    max-width: 180px;
+}
+
+/* Adjusting the focus border color */
+.filter-bar input:focus,
+.filter-bar select:focus {
+    border-color: #e50914;
+}
+
+/* Mobile responsive design */
+@media (max-width: 768px) {
+    .filter-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    /* Make the filter inputs take full width */
+    .filter-bar input,
+    .filter-bar select,
+    .filter-bar button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .filter-bar input {
+        width: 100%;
+    }
+
+    .filter-bar select {
+        width: 100%;
+    }
+}
+
