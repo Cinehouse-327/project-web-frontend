@@ -1,0 +1,67 @@
+.horizontalMovieCard {
+  display: flex;
+  align-items: center;
+  background-color: #f0f0f0;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 80%;
+  margin: 20px auto;
+}
+
+.horizontalMovieCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.horizontalMoviePoster {
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  border-right: 2px solid #ccc;
+}
+
+.horizontalMovieInfo {
+  flex-grow: 1;
+  padding: 20px;
+  text-align: left;
+}
+
+.horizontalMovieTitle {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.horizontalMovieDetails {
+  display: flex;
+  flex-direction: column;
+  font-size: 1em;
+}
+
+.horizontalMovieYear,
+.horizontalMovieCategory,
+.horizontalMovieType {
+  margin: 5px 0;
+  color: #555;
+}
+
+.horizontalBookButton {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 8px;
+  margin-left: auto;
+  margin-right: 10px;
+  height: 100%;
+  width: 20%;
+}
+
+.horizontalBookButton:hover {
+  background-color: #0056b3;
+}
