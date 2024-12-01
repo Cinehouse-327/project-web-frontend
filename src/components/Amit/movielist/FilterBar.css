@@ -1,0 +1,115 @@
+/* FilterBar.css */
+
+/* Container for the filter bar inside MovieList page */
+.movie-list-page .filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  background-color: #1f1f1f;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 1100px;
+  margin: 20px auto;
+  transition: background-color 0.3s ease;
+}
+
+/* When hovering over the filter bar */
+.movie-list-page .filter-bar:hover {
+  background-color: #333;
+}
+
+/* Input box style for movie search */
+.movie-list-page .filter-bar input {
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 2px solid #e50914;
+  background-color: #333;
+  color: #fff;
+  outline: none;
+  width: 250px;
+  transition: all 0.3s ease;
+}
+
+/* Focus on input box */
+.movie-list-page .filter-bar input:focus {
+  border-color: #e50914;
+}
+
+/* Placeholder color for the input */
+.movie-list-page .filter-bar input::placeholder {
+  color: #ccc;
+}
+
+/* Dropdowns (select elements) style */
+.movie-list-page .filter-bar select {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 2px solid #e50914;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  width: 180px;
+}
+
+/* Focus on dropdowns */
+.movie-list-page .filter-bar select:focus {
+  border-color: #e50914;
+}
+
+/* Hover effect on dropdown */
+.movie-list-page .filter-bar select:hover {
+  border-color: #fff;
+}
+
+/* Button style */
+.movie-list-page .filter-bar button {
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #e50914;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 200px;
+}
+
+/* Hover effect on button */
+.movie-list-page .filter-bar button:hover {
+  background-color: #b20710;
+  color: #1f1f1f;
+}
+
+/* Active effect when the button is clicked */
+.movie-list-page .filter-bar button:active {
+  background-color: #b20710;
+  transform: translateY(2px);
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  /* Stack filter bar items vertically */
+  .movie-list-page .filter-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Adjust width of select inputs and button */
+  .movie-list-page .filter-bar select,
+  .movie-list-page .filter-bar button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  /* Adjust search input width */
+  .movie-list-page .filter-bar input {
+    width: 100%;
+  }
+}
