@@ -1,0 +1,32 @@
+.watchlist-container {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .watchlist-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .watchlist-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+  }
+  
+  .poster {
+    width: 100%;
+    height: auto;
+  }
+  
+  .delete-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+  }
+  
