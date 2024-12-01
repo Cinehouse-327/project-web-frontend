@@ -1,0 +1,38 @@
+.WatchlistApp {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.WatchlistApp-header {
+  background-color: #4b0082;
+  padding: 20px;
+  color: white;
+}
+
+.watchlist-table {
+  margin: 20px;
+}
+
+.watchlist-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.watchlist-table th,
+.watchlist-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.watchlist-table th {
+  background-color: #f2f2f2;
+}
+
+.watchlist-controls {
+  margin-top: 20px;
+}
+
+.watchlist-controls input,
+.watchlist-controls button {
+  margin: 0 5px;
+}
