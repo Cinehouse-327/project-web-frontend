@@ -1,0 +1,166 @@
+/* General Container */
+/* Set the payment page to cover full screen width and height */
+.payment-page {
+    width: 100%;
+    min-height: 100vh; /* 100% of the viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000; /* Light background color for the page */
+}
+
+/* Ensure the Header and Footer are positioned properly */
+.payment-page header{
+    margin-left: 180px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.payment-page footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.payment-gateway {
+    background-color: #1e1e1e;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    /* margin: auto; */
+    margin-top: 90px;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Header Styling */
+  .gateway-header {
+    color: #ffd700;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .select-header {
+    margin: 15px 0;
+    text-align: center;
+  }
+  
+  /* Buttons Styling */
+  .buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .method-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .card-method {
+    background-color: red;
+  }
+  
+  .mobile-method {
+    background-color: yellow;
+    color: black;
+  }
+  
+  .cash-method {
+    background-color: green;
+  }
+  
+  /* Button Hover Effect */
+  .method-button:hover {
+    opacity: 0.9;
+  }
+  
+  /* Forms Styling */
+  .form {
+    background-color: #2a2a2a;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+  
+  label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 14px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #121212;
+    color: white;
+  }
+  
+  input::placeholder {
+    color: #888;
+  }
+  
+  /* Form Header Styling */
+  .form-header {
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 18px;
+  }
+  
+  .card-header {
+    color: red;
+  }
+  
+  .mobile-header {
+    color: yellow;
+  }
+  
+  .cash-header {
+    color: green;
+  }
+  
+  /* Pay Button */
+  .pay-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .card-button {
+    background-color: red;
+    color: white;
+  }
+  
+  .mobile-button {
+    background-color: yellow;
+    color: black;
+  }
+  .cash-button {
+    background-color: rgb(61, 237, 67);
+    color: black;
+  }
+  
+  /* Placeholder for No Selection */
+  .form-placeholder {
+    text-align: center;
+    margin-top: 20px;
+    color: #888;
+  }
+  

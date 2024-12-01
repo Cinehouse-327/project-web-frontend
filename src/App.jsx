@@ -9,7 +9,7 @@ import SearchMovie from './components/sazzad/search/SearchMovie';
 
 import Order from './components/zaed/OrderConcession';
 import WatchList from './components/zaed/WatchlistApp';
-
+import MovieReview from './components/aman/MovieReview';
 const App = () => {
   return (
     <>
@@ -21,6 +21,7 @@ const App = () => {
         <Route path="/booking" element={<Booking />} />
         <Route path="/order" element={<Order />} />
         <Route path="/watchlist" element={<WatchList />} />
+        <Route path="/MovieReview" element={<MovieReview />} />
       </Routes>
     </>
   );
