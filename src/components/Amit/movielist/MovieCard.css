@@ -78,3 +78,17 @@
 .book-button:hover {
   background-color: #c1351d;
 }
+
+
+.watchlist-button {
+  background-color: #ff9800;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.watchlist-button:hover {
+  background-color: #e68900;
+}

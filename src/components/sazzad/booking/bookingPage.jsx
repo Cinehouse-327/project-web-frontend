@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import './BookingPage.css';
-import Header from '../home/pageComponents/Header';
-import Footer from '../home/pageComponents/Footer';
+import Header from '../../home/pageComponents/Header';
+import Footer from '../../home/pageComponents/Footer';
 
 /**
  * BookingPage component for selecting and booking movie tickets.
