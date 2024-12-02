@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchMovies } from '../../store/movieSlice';
+import { fetchMovies } from '../../../store/movieSlice';
 import './MovieList.css';
-import Header from '../home/pageComponents/Header';
-import Footer from '../home/pageComponents/Footer';
+import Header from '../../home/pageComponents/Header';
+import Footer from '../../home/pageComponents/Footer';
 import MovieCard from './MovieCard';
 
 function MovieList() {
