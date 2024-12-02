@@ -54,8 +54,8 @@ const Header = () => {
           <a href="/movies" className="header__navItem">
             Movies
           </a>
-          <a href="/tvshows" className="header__navItem">
-            TV Shows
+          <a href="/order" className="header__navItem">
+            FOOD
           </a>
           <a href="/my-list" className="header__navItem">
             My List

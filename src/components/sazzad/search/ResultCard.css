@@ -1,13 +1,15 @@
 .horizontalMovieCard {
   display: flex;
+  flex-direction: column; 
   align-items: center;
   background-color: #f0f0f0;
   border: 2px solid #ccc;
   border-radius: 8px;
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
-  width: 80%;
-  margin: 20px auto;
+  width: 100%; 
+  max-width: 1200px; 
+  margin: 20px auto; 
 }
 
 .horizontalMovieCard:hover {
@@ -16,16 +18,15 @@
 }
 
 .horizontalMoviePoster {
-  width: 150px;
-  height: 200px;
+  width: 100%; 
+  height: auto; 
   object-fit: cover;
-  border-right: 2px solid #ccc;
 }
 
 .horizontalMovieInfo {
-  flex-grow: 1;
   padding: 20px;
-  text-align: left;
+  text-align: center; 
+  width: 100%; 
 }
 
 .horizontalMovieTitle {
@@ -36,14 +37,15 @@
 
 .horizontalMovieDetails {
   display: flex;
-  flex-direction: column;
+  justify-content: space-around; 
   font-size: 1em;
+  margin-top: 10px;
 }
 
 .horizontalMovieYear,
 .horizontalMovieCategory,
 .horizontalMovieType {
-  margin: 5px 0;
+  margin: 5px;
   color: #555;
 }
 
@@ -56,10 +58,8 @@
   cursor: pointer;
   transition: background-color 0.3s;
   border-radius: 8px;
-  margin-left: auto;
-  margin-right: 10px;
-  height: 100%;
-  width: 20%;
+  width: calc(100% - 40px); 
+  margin: 20px auto; 
 }
 
 .horizontalBookButton:hover {
