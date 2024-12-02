@@ -1,4 +1,32 @@
-import React, { useState, useEffect } from "react";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: aman/MovieReview.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: aman/MovieReview.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./MovieReview.css";
 
@@ -17,24 +45,24 @@ import "./MovieReview.css";
  */
 const Review = ({ review }) => {
   return (
-    <div className="review">
-      <div className="user-photo">
-        <img
+    &lt;div className="review">
+      &lt;div className="user-photo">
+        &lt;img
           src="https://www.thedailystar.net/sites/default/files/styles/big_2/public/feature/images/hero_alam-web.jpg"
           alt="User Photo"
           width="60"
           height="60"
         />
-      </div>
-      <div className="review-content">
-        <div className="review-header">
-          <div className="user-name">{review.title}</div>
-          <div className="review-date">{new Date().toLocaleDateString()}</div>
-        </div>
-        <div className="review-stars">{"★".repeat(review.rating)}</div>
-        <div className="review-text">{review.review}</div>
-      </div>
-    </div>
+      &lt;/div>
+      &lt;div className="review-content">
+        &lt;div className="review-header">
+          &lt;div className="user-name">{review.title}&lt;/div>
+          &lt;div className="review-date">{new Date().toLocaleDateString()}&lt;/div>
+        &lt;/div>
+        &lt;div className="review-stars">{"★".repeat(review.rating)}&lt;/div>
+        &lt;div className="review-text">{review.review}&lt;/div>
+      &lt;/div>
+    &lt;/div>
   );
 };
 
@@ -70,26 +98,26 @@ const ReviewFormModal = ({ isOpen, onClose, onSubmit }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="modal-overlay">
-      <div className="modal">
-        <button className="close-button" onClick={onClose}>
-          &times;
-        </button>
-        <h2>Write a Review</h2>
-        <form onSubmit={handleSubmit} className="review-form">
-          <div className="form-group">
-            <label>Title of Review</label>
-            <input
+    &lt;div className="modal-overlay">
+      &lt;div className="modal">
+        &lt;button className="close-button" onClick={onClose}>
+          &amp;times;
+        &lt;/button>
+        &lt;h2>Write a Review&lt;/h2>
+        &lt;form onSubmit={handleSubmit} className="review-form">
+          &lt;div className="form-group">
+            &lt;label>Title of Review&lt;/label>
+            &lt;input
               type="text"
               name="title"
               value={formData.title}
               onChange={handleChange}
               required
             />
-          </div>
-          <div className="form-group">
-            <label>Rating (1-10)</label>
-            <input
+          &lt;/div>
+          &lt;div className="form-group">
+            &lt;label>Rating (1-10)&lt;/label>
+            &lt;input
               type="number"
               name="rating"
               min="1"
@@ -98,23 +126,23 @@ const ReviewFormModal = ({ isOpen, onClose, onSubmit }) => {
               onChange={handleChange}
               required
             />
-          </div>
-          <div className="form-group">
-            <label>Detail Review</label>
-            <textarea
+          &lt;/div>
+          &lt;div className="form-group">
+            &lt;label>Detail Review&lt;/label>
+            &lt;textarea
               name="detail"
               value={formData.detail}
               onChange={handleChange}
               rows="5"
               required
             />
-          </div>
-          <button type="submit" className="submit-button">
+          &lt;/div>
+          &lt;button type="submit" className="submit-button">
             Submit
-          </button>
-        </form>
-      </div>
-    </div>
+          &lt;/button>
+        &lt;/form>
+      &lt;/div>
+    &lt;/div>
   );
 };
 
@@ -159,7 +187,7 @@ const MovieReview = ({ movieId, userId }) => {
       review: review.detail,
       date: new Date().toLocaleDateString(), // Current date
       userPhoto:
-        "https://hips.hearstapps.com/hmg-prod/images/narendra-modi-494107793-600x600.jpg?crop=1xw:1.0xh;center,top&resize=640:*", // Placeholder photo
+        "https://hips.hearstapps.com/hmg-prod/images/narendra-modi-494107793-600x600.jpg?crop=1xw:1.0xh;center,top&amp;resize=640:*", // Placeholder photo
     };
 
     try {
@@ -179,51 +207,74 @@ const MovieReview = ({ movieId, userId }) => {
   };
 
   return (
-    <div className="container">
+    &lt;div className="container">
       {/* Left Side: Movie Poster */}
-      <div className="movie-poster">
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWNZA7Kyy-Q2hAGDOSKKP6FTFJY1qpUsTttDwaroHljSqjmkJxtH5WaYIPZY9GK3U1gNI&usqp=CAU"
+      &lt;div className="movie-poster">
+        &lt;img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWNZA7Kyy-Q2hAGDOSKKP6FTFJY1qpUsTttDwaroHljSqjmkJxtH5WaYIPZY9GK3U1gNI&amp;usqp=CAU"
           alt="Movie Poster"
         />
-        <button className="book-ticket-button">Book a Ticket</button>
-      </div>
+        &lt;button className="book-ticket-button">Book a Ticket&lt;/button>
+      &lt;/div>
 
       {/* Right Side: Movie Info and Reviews */}
-      <div className="movie-info">
-        <div className="movie-title">Spider-Man: Far From Home</div>
-        <div className="movie-subtitle">2021</div>
+      &lt;div className="movie-info">
+        &lt;div className="movie-title">Spider-Man: Far From Home&lt;/div>
+        &lt;div className="movie-subtitle">2021&lt;/div>
 
         {/* Overall Rating */}
-        <div className="overall-rating">
-          <div className="overall">Overall Rating:</div>
-          <div className="rating-value">8.1/10</div>
-          <div className="stars">★★★★★★★★☆☆</div>
-          <button
+        &lt;div className="overall-rating">
+          &lt;div className="overall">Overall Rating:&lt;/div>
+          &lt;div className="rating-value">8.1/10&lt;/div>
+          &lt;div className="stars">★★★★★★★★☆☆&lt;/div>
+          &lt;button
             className="write-review-button"
             onClick={() => setIsModalOpen(true)} // Open modal to write a review
           >
             Write Review
-          </button>
-        </div>
-        <div className="total-reviews">Total Reviews: {reviews.length}</div>
+          &lt;/button>
+        &lt;/div>
+        &lt;div className="total-reviews">Total Reviews: {reviews.length}&lt;/div>
 
         {/* Review List */}
-        <div className="review-list">
+        &lt;div className="review-list">
           {reviews.map((review, index) => (
-            <Review key={index} review={review} />
+            &lt;Review key={index} review={review} />
           ))}
-        </div>
-      </div>
+        &lt;/div>
+      &lt;/div>
 
       {/* Review Form Modal */}
-      <ReviewFormModal
+      &lt;ReviewFormModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         onSubmit={handleAddReview}
       />
-    </div>
+    &lt;/div>
   );
 };
 
 export default MovieReview;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#BookingPage">BookingPage</a></li><li><a href="global.html#FilterBar">FilterBar</a></li><li><a href="global.html#HelpSupport">HelpSupport</a></li><li><a href="global.html#MovieReview">MovieReview</a></li><li><a href="global.html#PaymentGateway">PaymentGateway</a></li><li><a href="global.html#ResultCard">ResultCard</a></li><li><a href="global.html#Review">Review</a></li><li><a href="global.html#ReviewFormModal">ReviewFormModal</a></li><li><a href="global.html#SearchMovie">SearchMovie</a></li><li><a href="global.html#handlePayment">handlePayment</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Mon Dec 02 2024 11:52:23 GMT+0600 (Bangladesh Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 
+/**
+ * @file EditProfile.jsx
+ * @description This component allows users to view and update their profile information, 
+ * including personal details, contact information, and account settings.
+ */
+
 const EditProfile = () => {
   const [profile, setProfile] = useState({
     firstName: 'Akif',

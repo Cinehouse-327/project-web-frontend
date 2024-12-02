@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import "./HelpSupport.css";
 
+
+/**
+ * @file HelpSupport.jsx
+ * @description This component provides users with access to help and support resources, 
+ * including FAQs, contact options, troubleshooting guides, and live chat or ticket submission.
+ */
+
 /**
  * The `HelpSupport` component allows users to submit and delete questions.
  * It manages a list of questions and provides functionality for adding and deleting them.

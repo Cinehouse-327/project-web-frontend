@@ -6,6 +6,12 @@ import Header from '../../home/pageComponents/Header';
 import Footer from '../../home/pageComponents/Footer';
 import MovieCard from './MovieCard';
 
+
+/**
+ * @file movieList.jsx
+ * @description This component displays a list of movies
+ */
+
 function MovieList() {
   const dispatch = useDispatch();
   const { movies, loading, error } = useSelector((state) => state.movies);  // Assuming the movies are stored in `state.movies`
