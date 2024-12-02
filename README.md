@@ -22,7 +22,6 @@ Cinehouse-327 is a modern movie platform designed to provide movie enthusiasts w
 ## Technologies Used
 
 - React
-- Tailwind CSS
 - Redux
 - Axios for HTTP requests
 
