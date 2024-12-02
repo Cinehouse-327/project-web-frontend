@@ -1,4 +1,32 @@
-import React, { useState, useEffect } from 'react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: sazzad/booking/bookingPage.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: sazzad/booking/bookingPage.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import './BookingPage.css';
@@ -45,7 +73,7 @@ const BookingPage = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:3000/user/bookings/seats?movieId=${movieId}&date=${selectedDate}&time=${selectedTime}`
+        `http://localhost:3000/user/bookings/seats?movieId=${movieId}&amp;date=${selectedDate}&amp;time=${selectedTime}`
       );
       const data = await response.json();
       if (response.ok) {
@@ -133,46 +161,46 @@ const BookingPage = () => {
   };
 
   return (
-    <div className="bookingPage">
-      <Header />
-      <h1>Book {movieTitle}</h1>
-      <img className="bookingPage__poster" src={moviePoster} alt={movieTitle} />
+    &lt;div className="bookingPage">
+      &lt;Header />
+      &lt;h1>Book {movieTitle}&lt;/h1>
+      &lt;img className="bookingPage__poster" src={moviePoster} alt={movieTitle} />
 
-      <div className="bookingPage__options">
-        <label>
+      &lt;div className="bookingPage__options">
+        &lt;label>
           Select Date:
-          <input
+          &lt;input
             type="date"
             value={selectedDate}
             onChange={(e) => setSelectedDate(e.target.value)}
           />
-        </label>
-        <label>
+        &lt;/label>
+        &lt;label>
           Select Show Time:
-          <select value={selectedTime} onChange={(e) => setSelectedTime(e.target.value)}>
-            <option value="">Choose Show Time</option>
-            <option value="12:00:00">12:00 PM</option>
-            <option value="16:00:00">4:00 PM</option>
-            <option value="20:00:00">8:00 PM</option>
-          </select>
-        </label>
+          &lt;select value={selectedTime} onChange={(e) => setSelectedTime(e.target.value)}>
+            &lt;option value="">Choose Show Time&lt;/option>
+            &lt;option value="12:00:00">12:00 PM&lt;/option>
+            &lt;option value="16:00:00">4:00 PM&lt;/option>
+            &lt;option value="20:00:00">8:00 PM&lt;/option>
+          &lt;/select>
+        &lt;/label>
 
-        <label>
+        &lt;label>
           Select Seat Type:
-          <select value={seatType} onChange={(e) => setSeatType(e.target.value)}>
-            <option value="">Choose seat type</option>
-            <option value="VIP">VIP</option>
-            <option value="Regular">Regular</option>
-            <option value="Economy">Economy</option>
-          </select>
-        </label>
-      </div>
+          &lt;select value={seatType} onChange={(e) => setSeatType(e.target.value)}>
+            &lt;option value="">Choose seat type&lt;/option>
+            &lt;option value="VIP">VIP&lt;/option>
+            &lt;option value="Regular">Regular&lt;/option>
+            &lt;option value="Economy">Economy&lt;/option>
+          &lt;/select>
+        &lt;/label>
+      &lt;/div>
 
-      <div className="bookingPage__seatSelection">
-        <h2>Select Your Seats</h2>
-        <div className="seatGrid">
+      &lt;div className="bookingPage__seatSelection">
+        &lt;h2>Select Your Seats&lt;/h2>
+        &lt;div className="seatGrid">
           {Array.from({ length: 30 }, (_, index) => (
-            <div
+            &lt;div
               key={index}
               className={`seat ${
                 seatsStatus[index] === 'booked'
@@ -184,17 +212,40 @@ const BookingPage = () => {
               onClick={() => handleSeatClick(index)}
             >
               {index + 1}
-            </div>
+            &lt;/div>
           ))}
-        </div>
-      </div>
+        &lt;/div>
+      &lt;/div>
 
-      <button className="bookingPage__confirmButton" onClick={confirmBooking}>
+      &lt;button className="bookingPage__confirmButton" onClick={confirmBooking}>
         Confirm Booking
-      </button>
-      <Footer />
-    </div>
+      &lt;/button>
+      &lt;Footer />
+    &lt;/div>
   );
 };
 
 export default BookingPage;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#BookingPage">BookingPage</a></li><li><a href="global.html#FilterBar">FilterBar</a></li><li><a href="global.html#HelpSupport">HelpSupport</a></li><li><a href="global.html#MovieReview">MovieReview</a></li><li><a href="global.html#PaymentGateway">PaymentGateway</a></li><li><a href="global.html#ResultCard">ResultCard</a></li><li><a href="global.html#Review">Review</a></li><li><a href="global.html#ReviewFormModal">ReviewFormModal</a></li><li><a href="global.html#SearchMovie">SearchMovie</a></li><li><a href="global.html#handlePayment">handlePayment</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Mon Dec 02 2024 11:52:23 GMT+0600 (Bangladesh Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

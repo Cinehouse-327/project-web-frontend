@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
+    "doc": "jsdoc -c jsdoc.json",
     "preview": "vite preview"
   },
   "dependencies": {

@@ -1,0 +1,22 @@
+{
+  "source": {
+    "include": [
+      "src/components/sazzad/booking", 
+      "src/components/sazzad/search", 
+      "src/components/aman", 
+      "src/components/akif", 
+      "src/components/amit", 
+      "src/components/amit/movielist", 
+      "src/components/zaed" 
+    ],
+    "includePattern": ".jsx$",
+    "excludePattern": "(node_modules|docs)"
+  },
+  "plugins": ["plugins/markdown"],
+  "templates": {
+    "cleverLinks": true,
+    "monospaceLinks": true
+  },
+  "opts": {
+  }
+}

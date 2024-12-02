@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: akif/GiftCard.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: akif/GiftCard.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react';
+import { ArrowLeft, Trash2 } from 'lucide-react';
+
+/**
+ * @file GiftCard.jsx
+ * @description This component enables users to purchase, view, and redeem gift cards, 
+ * manage gift card balances, and apply them to their accounts or purchases.
+ */
+
+const GiftCard = () => {
+  const cartItems = [
+    { id: 1, name: 'Gift Card 1', price: 40, quantity: 1, description: '2 tickets + 2 food selections' },
+    { id: 2, name: 'Gift Card 2', price: 80, quantity: 1, description: '4 tickets + 4 selections' },
+    { id: 3, name: 'Gift Card 3', price: 20, quantity: 1, description: '1 ticket + 1 food selection' }
+  ];
+
+  const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const shipping = 4;
+  const total = subtotal + shipping;
+
+  return (
+    &lt;div className="shopping-cart-container">
+      {/* Shopping Cart Section */}
+      &lt;div className="cart-section">
+        &lt;div className="cart-header">
+          &lt;ArrowLeft className="w-6 h-6 mr-2" />
+          &lt;h2 className="cart-title">Shopping Continue&lt;/h2>
+        &lt;/div>
+
+        &lt;div className="cart-summary">
+          &lt;h3>Shopping cart&lt;/h3>
+          &lt;p>You have {cartItems.length} item in your cart&lt;/p>
+        &lt;/div>
+
+        &lt;div className="cart-items-container">
+          {cartItems.map((item) => (
+            &lt;div key={item.id} className="cart-item">
+              &lt;div className="cart-item-content">
+                &lt;div className="cart-item-details">
+                  &lt;div className="cart-item-price-badge">
+                    ${item.price}
+                  &lt;/div>
+                  &lt;div>
+                    &lt;h4 className="font-semibold">{item.name}&lt;/h4>
+                    &lt;p className="text-gray-600">{item.description}&lt;/p>
+                  &lt;/div>
+                &lt;/div>
+                &lt;div className="cart-item-controls">
+                  &lt;div className="quantity-control">
+                    &lt;button>-&lt;/button>
+                    &lt;span>{item.quantity}&lt;/span>
+                    &lt;button>+&lt;/button>
+                  &lt;/div>
+                  &lt;span className="font-semibold">${item.price}&lt;/span>
+                  &lt;Trash2 className="w-5 h-5 text-gray-400 cursor-pointer" />
+                &lt;/div>
+              &lt;/div>
+            &lt;/div>
+          ))}
+        &lt;/div>
+      &lt;/div>
+
+      {/* Payment Details Section */}
+      &lt;div className="payment-section">
+        &lt;div className="payment-card">
+          &lt;h3 className="text-xl font-semibold mb-6">Card Details&lt;/h3>
+
+          &lt;div className="card-type-selection">
+            &lt;div className="card-type-item">
+              &lt;img src="/api/placeholder/40/25" alt="Mastercard" className="w-10" />
+            &lt;/div>
+            &lt;div className="card-type-item">
+              &lt;img src="/api/placeholder/40/25" alt="Visa" className="w-10" />
+            &lt;/div>
+            &lt;div className="card-type-item">
+              &lt;img src="/api/placeholder/40/25" alt="Other" className="w-10" />
+            &lt;/div>
+          &lt;/div>
+
+          &lt;div className="payment-form">
+            &lt;div>
+              &lt;label>Name on card&lt;/label>
+              &lt;input type="text" placeholder="Name" />
+            &lt;/div>
+            &lt;div>
+              &lt;label>Card Number&lt;/label>
+              &lt;input type="text" placeholder="1111 2222 3333 4444" />
+            &lt;/div>
+            &lt;div className="flex gap-4">
+              &lt;div className="flex-1">
+                &lt;label>Expiration date&lt;/label>
+                &lt;input type="text" placeholder="mm/yy" />
+              &lt;/div>
+              &lt;div className="flex-1">
+                &lt;label>CVV&lt;/label>
+                &lt;input type="text" placeholder="123" />
+              &lt;/div>
+            &lt;/div>
+          &lt;/div>
+
+          &lt;div className="payment-summary">
+            &lt;div className="summary-item">
+              &lt;span>Subtotal&lt;/span>
+              &lt;span>${subtotal}&lt;/span>
+            &lt;/div>
+            &lt;div className="summary-item">
+              &lt;span>Shipping&lt;/span>
+              &lt;span>${shipping}&lt;/span>
+            &lt;/div>
+            &lt;div className="summary-item font-semibold">
+              &lt;span>Total (Tax incl.)&lt;/span>
+              &lt;span>${total}&lt;/span>
+            &lt;/div>
+          &lt;/div>
+
+          &lt;button className="checkout-button">Checkout ${total}&lt;/button>
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+  );
+};
+
+export default GiftCard;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#BookingPage">BookingPage</a></li><li><a href="global.html#FilterBar">FilterBar</a></li><li><a href="global.html#HelpSupport">HelpSupport</a></li><li><a href="global.html#MovieReview">MovieReview</a></li><li><a href="global.html#PaymentGateway">PaymentGateway</a></li><li><a href="global.html#ResultCard">ResultCard</a></li><li><a href="global.html#Review">Review</a></li><li><a href="global.html#ReviewFormModal">ReviewFormModal</a></li><li><a href="global.html#SearchMovie">SearchMovie</a></li><li><a href="global.html#handlePayment">handlePayment</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Mon Dec 02 2024 11:52:23 GMT+0600 (Bangladesh Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

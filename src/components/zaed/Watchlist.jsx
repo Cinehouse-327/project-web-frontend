@@ -3,6 +3,13 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import "./Watchlist.css";
 
+
+/**
+ * @file watchList.jsx
+ * @description This component manages the user's watchlist, 
+ * allowing users to add, remove, and view movies or shows they wish to watch in the future.
+ */
+
 function Watchlist() {
   const [movies, setMovies] = useState([]);
   const { userId } = useSelector((state) => state.auth); 

@@ -1,6 +1,12 @@
 import React from 'react';
 import { ArrowLeft, Trash2 } from 'lucide-react';
 
+/**
+ * @file GiftCard.jsx
+ * @description This component enables users to purchase, view, and redeem gift cards, 
+ * manage gift card balances, and apply them to their accounts or purchases.
+ */
+
 const GiftCard = () => {
   const cartItems = [
     { id: 1, name: 'Gift Card 1', price: 40, quantity: 1, description: '2 tickets + 2 food selections' },

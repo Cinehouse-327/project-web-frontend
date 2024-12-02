@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: aman/PaymentGateway.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: aman/PaymentGateway.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom"; // Import useLocation and useNavigate hooks
+import { toast } from "react-toastify"; // Import toast from react-toastify
+import "react-toastify/dist/ReactToastify.css"; // Import Toastify styles
+import "./PaymentGateway.css";
+import Header from '../home/pageComponents/Header';
+import Footer from '../home/pageComponents/Footer';
+
+
+
+/**
+ * @file paymentGateway.jsx
+ * @description This component handles the payment processing functionality, 
+ * allowing users to securely enter payment information, complete transactions, 
+ * and handle payment-related tasks such as confirmation and error handling.
+ */
+
+/**
+ * PaymentGateway component handles the payment process for a booking.
+ * Users can select a payment method and enter payment details to confirm the booking.
+ *
+ * @component
+ */
+const PaymentGateway = () => {
+  const location = useLocation(); // Use useLocation hook to get passed data
+  const navigate = useNavigate(); // Use useNavigate hook for navigation
+  const { total_price, bookingId, userId } = location.state || {}; // Destructure bookingId, total_price, and userId from state
+  const [paymentMethod, setPaymentMethod] = useState("");
+
+  /**
+   * Renders the payment form based on the selected payment method.
+   *
+   * @returns {JSX.Element} The payment form based on the selected method.
+   */
+  const renderForm = () => {
+    switch (paymentMethod) {
+      case "card":
+        return (
+          &lt;div className="form card-form">
+            &lt;h3 className="form-header card-header">Card Payment&lt;/h3>
+            &lt;label>
+              Cardholder Name:
+              &lt;input type="text" placeholder="Enter cardholder name" />
+            &lt;/label>
+            &lt;label>
+              Card Number:
+              &lt;input type="text" placeholder="Enter card number" />
+            &lt;/label>
+            &lt;label>
+              Expiry Date:
+              &lt;input type="text" placeholder="MM/YY" />
+            &lt;/label>
+            &lt;label>
+              CVV:
+              &lt;input type="password" placeholder="Enter CVV" />
+            &lt;/label>
+            &lt;button className="pay-button card-button" onClick={handlePayment}>
+              Pay &amp; Confirm Booking
+            &lt;/button>
+          &lt;/div>
+        );
+      case "mobile":
+        return (
+          &lt;div className="form mobile-form">
+            &lt;h3 className="form-header mobile-header">Mobile Banking&lt;/h3>
+            &lt;label>
+              Mobile Banking Provider:
+              &lt;input type="text" placeholder="Enter mobile banking provider" />
+            &lt;/label>
+            &lt;label>
+              Account Number:
+              &lt;input type="text" placeholder="Enter account number" />
+            &lt;/label>
+            &lt;label>
+              Confirmation PIN:
+              &lt;input type="password" placeholder="Enter confirmation PIN" />
+            &lt;/label>
+            &lt;button className="pay-button mobile-button" onClick={handlePayment}>
+              Pay &amp; Confirm Booking
+            &lt;/button>
+          &lt;/div>
+        );
+      case "cash":
+        return (
+          &lt;div>
+            &lt;h3 className="form-header cash-header">Cash Payment Selected&lt;/h3>
+            &lt;button className="pay-button cash-button" onClick={handlePayment}>
+              Pay &amp; Confirm Booking
+            &lt;/button>
+          &lt;/div>
+        );
+
+      default:
+        return &lt;p className="form-placeholder">Please select a payment method.&lt;/p>;
+    }
+  };
+
+  /**
+   * Handles the payment logic, sending payment details to the server.
+   * Displays a success or error toast based on the server response.
+   * 
+   * @async
+   * @function handlePayment
+   * @returns {Promise&lt;void>} A Promise that resolves when payment logic is executed.
+   */
+  const handlePayment = async () => {
+    // The payment details object includes the required information
+    const paymentDetails = {
+      user_id: userId,
+      booking_id: bookingId,
+      payment_status: "Successful", // Assuming payment is successful. Add further logic for failure if needed
+      amount_paid: total_price, // Amount to be paid (from total_price)
+      payment_method: paymentMethod, // Selected payment method (card, mobile, cash)
+    };
+
+    try {
+      const response = await fetch("http://localhost:3000/user/payments", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(paymentDetails),
+      });
+
+      if (response.ok) {
+        toast.success("Your payment is successfully paid. Thank you for booking seat.", {
+          autoClose: 3000, // Toast will disappear after 3 seconds
+          onClose: () => {
+            navigate("/"); // Navigate to home page after the toast disappears
+          },
+        });
+      } else {
+        const errorData = await response.json();
+        toast.error(`Payment failed: ${errorData.message}`);
+      }
+    } catch (error) {
+      toast.error("Error processing payment: " + error.message);
+    }
+  };
+
+  return (
+    &lt;div className="payment-page">
+      &lt;Header />
+      &lt;div className="payment-gateway">
+        &lt;h2 className="gateway-header">Payment Gateway&lt;/h2>
+        &lt;label>
+          Amount Due: &lt;strong>{total_price ? `৳ ${total_price}` : 'N/A'}&lt;/strong>
+        &lt;/label>
+        &lt;h3 className="select-header">Select Payment Method&lt;/h3>
+        &lt;div className="buttons">
+          &lt;button className="method-button card-method" onClick={() => setPaymentMethod("card")}>
+            Card
+          &lt;/button>
+          &lt;button className="method-button mobile-method" onClick={() => setPaymentMethod("mobile")}>
+            Mobile Banking
+          &lt;/button>
+          &lt;button className="method-button cash-method" onClick={() => setPaymentMethod("cash")}>
+            Cash
+          &lt;/button>
+        &lt;/div>
+        {renderForm()}
+      &lt;/div>
+      &lt;Footer />
+    &lt;/div>
+  );
+};
+
+export default PaymentGateway;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#BookingPage">BookingPage</a></li><li><a href="global.html#FilterBar">FilterBar</a></li><li><a href="global.html#HelpSupport">HelpSupport</a></li><li><a href="global.html#MovieReview">MovieReview</a></li><li><a href="global.html#PaymentGateway">PaymentGateway</a></li><li><a href="global.html#ResultCard">ResultCard</a></li><li><a href="global.html#Review">Review</a></li><li><a href="global.html#ReviewFormModal">ReviewFormModal</a></li><li><a href="global.html#SearchMovie">SearchMovie</a></li><li><a href="global.html#handlePayment">handlePayment</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Mon Dec 02 2024 11:52:23 GMT+0600 (Bangladesh Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

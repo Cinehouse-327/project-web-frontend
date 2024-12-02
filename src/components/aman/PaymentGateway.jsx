@@ -6,6 +6,15 @@ import "./PaymentGateway.css";
 import Header from '../home/pageComponents/Header';
 import Footer from '../home/pageComponents/Footer';
 
+
+
+/**
+ * @file paymentGateway.jsx
+ * @description This component handles the payment processing functionality, 
+ * allowing users to securely enter payment information, complete transactions, 
+ * and handle payment-related tasks such as confirmation and error handling.
+ */
+
 /**
  * PaymentGateway component handles the payment process for a booking.
  * Users can select a payment method and enter payment details to confirm the booking.

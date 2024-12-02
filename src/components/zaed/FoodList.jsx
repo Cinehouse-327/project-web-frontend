@@ -3,6 +3,13 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom'; 
 import './FoodList.css';
 
+/**
+ * @file FoodList.jsx
+ * @description This component handles the food ordering functionality, 
+ * allowing users to browse menus, add items to their cart, 
+ * customize orders, and complete the checkout process.
+ */
+
 const FoodList = () => {
   const { userId, isAuthenticated } = useSelector((state) => state.auth);
   const [foods, setFoods] = useState([]);
